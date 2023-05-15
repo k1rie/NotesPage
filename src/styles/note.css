@@ -1,15 +1,14 @@
-.card {
+.cardnote {
     font-family: sans-serif;
     box-sizing: border-box;
-    width: 190px;
+    min-width: 190px;
     height: 100px;
-    background: rgba(217, 217, 217, 0.58);
-    border: 1px solid white;
+    background: #212121;
+    border: 1px solid black;
     box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
     backdrop-filter: blur(6px);
     border-radius: 17px;
     text-align: center;
-    cursor: pointer;
     transition: all 0.5s;
     display: flex;
     align-items: center;
@@ -17,4 +16,14 @@
     user-select: none;
     font-weight: bolder;
     color: white;
+    cursor: pointer;
+  }
+
+  .cardnote:hover {
+    border: 1px solid red;
+    transform: scale(1.05);
+  }
+  
+  .cardnote:active {
+    transform: scale(0.95) rotateZ(1.7deg);
   }

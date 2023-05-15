@@ -11,12 +11,13 @@ export default function Main(props){
     }])
 
     useEffect(()=>{
-setNotas([...notas,props.notes])
+    fetch(`https://notesapi-production-92ec.up.railway.app/notes/${localStorage.getItem('name')}/${localStorage.getItem('password')}/${localStorage.getItem('id')}`).then(response=>response.json()).then(data=>setNotas(data))
+    console.log("d")
     },[props.notes])
 
     useEffect(()=>{
         fetch(`https://notesapi-production-92ec.up.railway.app/notes/${localStorage.getItem('name')}/${localStorage.getItem('password')}/${localStorage.getItem('id')}`).then(response=>response.json()).then(data=>setNotas(data))
-        },[])
+        },[notas])
          
         
 
@@ -27,7 +28,7 @@ setNotas([...notas,props.notes])
                 <h1 id="main-title"></h1>
 
                 <div className="tasks">
-                   {notas.map((e)=>{return <Nota content={e.content}/>})}
+                   {notas.map((e)=>{return <Nota identificator={e.id} content={e.content}/>})}
                 </div>
             </div>
 </div>
